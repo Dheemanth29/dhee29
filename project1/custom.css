@@ -1,0 +1,13 @@
+
+
+h1 {
+    color:red; background-color: azure;text-align: center;
+    }
+    p{
+    color:white; background-color: black;margin: 30px;font-size: large;
+    }
+    button{
+    color:rgb(0, 0, 0); background-color: red;margin: 30px;text-align:center;
+    align-items:center;font-size: larger;
+    }
+    

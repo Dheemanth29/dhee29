@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Gallery</title>
+    
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background: #f9f9f9;
+        }
+
+        /* Sidebar (Project List) */
+        #projects-list {
+            width: 25%;
+            background: #333;
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #projects-list h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* Project Links */
+        #project-links a {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background: #444;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        #project-links a:hover {
+            background: #555;
+        }
+
+        /* Content Area */
+        #project-content {
+            flex-grow: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* iFrame */
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ccc;
+            background: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="projects-list">
+        <h2>Projects</h2>
+        <div id="project-links"></div>
+    </div>
+
+    <div id="project-content">
+        <h2>Welcome!</h2>
+        <p>Select a project from the list.</p>
+        <iframe id="project-frame"></iframe>
+    </div>
+
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("projects.json") // Ensure the file exists
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Loaded projects:", data); // Debugging log
+
+                let projectLinks = document.getElementById("project-links");
+                let projectFrame = document.getElementById("project-frame");
+
+                if (!projectLinks || !projectFrame) {
+                    console.error("Error: Missing #project-links or #project-frame in HTML.");
+                    return;
+                }
+
+                projectLinks.innerHTML = ""; // Clear previous content
+
+                data.forEach(project => {
+                    let link = document.createElement("a");
+                    link.href = "#";
+                    link.textContent = project.title;
+                    link.onclick = function (event) {
+                        event.preventDefault(); // Prevent page refresh
+                        console.log(`Loading project: ${project.file}`); // Debugging
+
+                        fetch(project.file) // Check if file exists
+                            .then(fileResponse => {
+                                if (!fileResponse.ok) {
+                                    throw new Error(`Project file not found: ${project.file}`);
+                                }
+                                projectFrame.src = project.file; // Load the file into iframe
+                            })
+                            .catch(error => console.error(error.message));
+                    };
+
+                    projectLinks.appendChild(link);
+                });
+            })
+            .catch(error => console.error("Error fetching projects.json:", error));
+        });
+
+    </script>
+
+</body>
+</html>

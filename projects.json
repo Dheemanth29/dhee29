@@ -1,0 +1,89 @@
+[
+    {
+        "id": 1,
+        "title": "Project 1: Basic Styling",
+        "description": "A simple and basic styling of a webpage using HTML and CSS.",
+        "file": "./project1/Dashboard.html"
+    },
+    {
+        "id": 2,
+        "title": "Project 2: CSS Hover",
+        "description": "Basic Google clone.",
+        "file": "./project2/google.html"
+    },
+    {
+        "id": 3,
+        "title": "Project 3: Welcome to JS",
+        "description": "First code in JavaScript.",
+        "file": "./project3/task1.html"
+    },
+    {
+        "id": 4,
+        "title": "Project 4: Calculator with JS",
+        "description": "First program to create a calculator.",
+        "file": "./project3/calc_js.html"
+    },
+    {
+        "id": 5,
+        "title": "Project 3: JavaScript Task",
+        "description": "Task involving JavaScript fundamentals.",
+        "file": "./project3/task1.html"
+    },
+
+    {
+        "id": 6,
+        "title": "Project 6: Console Output",
+        "description": "Console output.",
+        "file": "./project6/task.html"
+    },
+    {
+        "id": 7,
+        "title": "Project 7: String ",
+        "description": "String operations.",
+        "file": "./project7/dheemu.html"
+    },
+    {
+        "id": 8,
+        "title": "Project 9: Conditions",
+        "description": "Task involving Conditions in JavaScript.",
+        "file": "./project9/in1.html"
+    },
+    {
+        "id": 9,
+        "title": "Project 10: Call stack array",
+        "description": "Call stack array.",
+        "file": "./project10/task2.html"
+    },
+    {
+        "id": 10,
+        "title": "Project 11: Class Work-Loops",
+        "description": "Loops in JavaScript.",
+        "file": "./project11/dhee.html"
+    },
+    {
+        "id": 11,
+        "title": "Project 12: Class Work",
+        "description": "Class Work.",
+        "file": "./project12/task.html"
+    },
+    {
+        "id": 12,
+        "title": "Project 13: Class Work-Objects-2",
+        "description": "Class Work based on objects in JavaScript.",
+        "file": "./project13/wed.html"
+    },
+    {
+        "id": 13,
+        "title": "Project 14: Class Work-Functions",
+        "description": "Class Work based on Functions.",
+        "file": "./project14/class24.html"
+    },
+    {
+        "id": 14,
+        "title": "Project 15: Class Work = Class & Bootstrap",
+        "description": "Class Work based on Classes and Bootstrap.",
+        "file": "./project15/bootstrap.html"
+    }
+
+
+]

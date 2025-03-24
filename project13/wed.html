@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                background-color: #f8f5f2;
+            }
+
+            .container {
+                width: 50%;
+                margin: auto;
+                padding: 20px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                }
+
+            h2 {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            input {
+                width: 45%;
+                padding: 8px;
+                margin: 5px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            button {
+                width: 45%;
+                padding: 10px;
+                margin: 5px;
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+                border-radius: 5px;
+            }
+
+            .insert, .show {
+                background-color: #a2d39b;
+                border: 1px solid #7faa74;
+            }
+
+            .clear {
+                background-color: #e89a9a;
+                border: 1px solid #d47b7b;
+            }
+
+            button:hover {
+                opacity: 0.8;
+            }
+
+            #display {
+                margin-top: 20px;
+                text-align: left;
+            }
+
+            #display p {
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Car Information</h2>
+            <input type="text" id="brand" placeholder="Enter Brand"><br><br>
+            <input type="text" id="model" placeholder="Enter Model"><br><br>
+            <input type="text" id="year" placeholder="Enter Year"><br><br>
+            <input type="text" id="color" placeholder="Enter Color"><br><br>
+            
+            
+            <button class="insert" onclick="insertInfo()">Insert Info</button>
+            <button class="clear" onclick="clearInputs()">Clear Inputs</button>
+            <button class="show" onclick="showAll()">Show All</button>
+            <button class="clear" onclick="clearDisplay()">Clear Display</button>
+            <h3>Search Inventory</h3>
+            <input type="text" id="search" placeholder="Search" onkeyup="search()"><br>
+            
+            <div id="display"></div>
+        </div>
+    
+        <script>
+            let cars = [];
+    
+            function insertInfo() {
+                let brand = document.getElementById("brand").value;
+                let model = document.getElementById("model").value;
+                let year = document.getElementById("year").value;
+                let color = document.getElementById("color").value;
+                
+                if (brand && model && year && color) {
+                    cars.push({ brand, model, year, color });
+                    alert("Car information added!");
+                    clearInputs();
+                } else {
+                    alert("Please fill in all fields.");
+                }
+            }
+    
+            function clearInputs() {
+                document.getElementById("brand").value = "";
+                document.getElementById("model").value = "";
+                document.getElementById("year").value = "";
+                document.getElementById("color").value = "";
+            }
+    
+            function showAll() {
+                let display = document.getElementById("display");
+                display.innerHTML = "";
+                cars.forEach((car, index) => {
+                    display.innerHTML += `<p>${index + 1}. ${car.brand} - ${car.model} - ${car.year} - ${car.color}</p>`;
+                });
+            }
+    
+            function clearDisplay() {
+                document.getElementById("display").innerHTML = "";
+            }
+            function search() {
+    let key = document.getElementById("search").value.toLowerCase();
+    let output = "";
+
+    cars.forEach((car, index) => {
+        if (car.brand.toLowerCase().includes(key) || car.model.toLowerCase().includes(key)) {
+            output += `<p>${index + 1}. ${car.brand} - ${car.model} - ${car.year} - ${car.color}</p>`;
+        }
+    });
+
+    document.getElementById("display").innerHTML = output || "<p>No results found.</p>";
+}
+
+            
+        </script>
+    </body>
+    </html>

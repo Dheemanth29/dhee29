@@ -1,0 +1,25 @@
+<html>
+    <head></head>
+    <body>
+        <input id="input_a" placeholder="Enter A"/>
+        <input id="input_b" placeholder="Enter B"/>
+        <button onclick="Calculate()">Calculate</button>
+
+        <div id="content_div"></div>
+
+        <script>
+            function Calculate(){
+                let a=parseInt(document.getElementById("input_a").value);
+                let b=parseInt(document.getElementById("input_b").value);
+                
+                sum=0;
+                for(let i=a; i<=b;i++){
+                    sum+=i;
+                }
+
+                document.getElementById("content_div").innerHTML = "sum: "+ sum;
+            }
+
+        </script>
+    </body>
+</html>

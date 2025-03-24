@@ -1,0 +1,48 @@
+<html>
+    <head>
+
+    </head>
+    
+    <body>
+        <div>
+        <input id="Student" placeholder="Enter Name" />
+        <input id="Student_Id" placeholder="Enter Student Id"/>
+        <input id="Email" placeholder="Enter Email"/>
+        <input id="Course" placeholder="Enter Course">
+        </div>
+        
+        <button onclick="insert()">Insert Info</button>
+        
+        <div id="demo_div"></div>
+        <button onclick="info()">Show Stuedent info</button>
+        <script>
+            
+
+            const student={
+                Student: "Dheemanth",
+                Student_ID : "S00426657",
+                Email: "dnomula1@aum.edu",
+                Course: "CS",
+                description: function(){
+                    return "Info : " + this.Student + " "+ this.Student_ID;
+                }
+                };
+                function info(){
+                    document.getElementById("demo_div").innerHTML=student.description();
+                }
+                function insert(){
+                    let Student =document.getElementById("Student").value;
+                    student.Student=Student;
+                    let Student_ID=document.getElementById("Student_id").value;
+                    student.Student_ID=Student_ID;
+                    let Email=document.getElementById("Email").value;
+                    student.Email=Email;
+                    let Course=document.getElementById("Course").value;
+                    student.Course=Course;
+                }
+    
+        </script>
+
+        
+    </body>
+</html>
