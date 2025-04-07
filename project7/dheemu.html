@@ -5,27 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Fields</title>
     <style>
-        #b{
+        input {
             display: inline-block;
-        }
-        #h{
-            display: inline-block;
+            margin-right: 10px;
+            font-size: 18px;
+            padding: 5px;
         }
     </style>
-   
-
 </head>
 <body>
-   
-    <input type="text" id="b" placeholder="Dheemanth" onkeyup="Case()">
-    <input type="text" id="h"placeholder="DHEEMANTH" disabled>
-    <script>
-        function Case() {
-            var f = document.getElementById("a");
-            var i = document.getElementById("i");
-            i.value = f.value.toUpperCase();
-        }
 
+    <input type="text" id="b" placeholder="Enter name" onkeyup="convertToUpper()">
+    <input type="text" id="h" disabled>
+
+    <script>
+        function convertToUpper() {
+            var inputField = document.getElementById("b");
+            var outputField = document.getElementById("h");
+            outputField.value = inputField.value.toUpperCase();
+        }
     </script>
+
 </body>
 </html>
