@@ -21,7 +21,7 @@
         "id": 4,
         "title": "Project 4: Calculator with JS",
         "description": "First program to create a calculator.",
-        "file": "./project3/calc_js.html"
+        "file": "./project4/calc_js.html"
     },
     {
         "id": 5,
@@ -58,7 +58,7 @@
         "id": 10,
         "title": "Project 11: Class Work-Loops",
         "description": "Loops in JavaScript.",
-        "file": "./project11/dhee.html"
+        "file": "./project11/dowhile.html"
     },
     {
         "id": 11,
