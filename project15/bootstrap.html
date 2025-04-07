@@ -49,20 +49,24 @@
 
 <!-- Form -->
 <div class="container mt-4">
+    <div id="errorMessage" class="alert alert-danger d-none" role="alert">
+        Please fill out all mandatory fields!
+    </div>
+
     <div class="row">
         <div class="col-md-6">
             <label class="form-label">Username</label>
-            <input type="text" placeholder="Enter username" class="form-control"/>
+            <input id="username" type="text" placeholder="Enter username" class="form-control"/>
         </div>
         <div class="col-md-6">
             <label class="form-label">Email</label>
-            <input type="email" placeholder="Enter username" class="form-control"/>
+            <input id="email" type="email" placeholder="Enter email" class="form-control"/>
         </div>
     </div>
     <div class="row mt-3">
         <div class="col-md-6">
             <label class="form-label">Full Name</label>
-            <input type="text" placeholder="Enter your name" class="form-control"/>
+            <input id="fullname" type="text" placeholder="Enter your name" class="form-control"/>
         </div>
     </div>
     <div class="row mt-4">
@@ -70,10 +74,27 @@
             <button class="btn btn-warning w-100">Cancel</button>
         </div>
         <div class="col-md-6">
-            <button class="btn btn-primary w-100">Continue to checkout</button>
+            <button class="btn btn-primary w-100" onclick="validateForm()">Continue to checkout</button>
         </div>
     </div>
 </div>
+
+<script>
+    function validateForm() {
+        const username = document.getElementById("username").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const fullname = document.getElementById("fullname").value.trim();
+        const errorMessage = document.getElementById("errorMessage");
+
+        if (username === "" || email === "" || fullname === "") {
+            errorMessage.classList.remove("d-none");
+        } else {
+            errorMessage.classList.add("d-none");
+            alert("Form submitted successfully!");
+            // You can submit form or redirect here
+        }
+    }
+</script>
 
 </body>
 </html>
